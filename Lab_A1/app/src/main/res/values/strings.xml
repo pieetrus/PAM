@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Lab_A1</string>
+    <string name="button_exit_text">Exit</string>
+    <string name="button_random_text">Random number</string>
+    <string name="textview_random_text">Your Random Number wil be here :)</string>
+
+
+</resources>
