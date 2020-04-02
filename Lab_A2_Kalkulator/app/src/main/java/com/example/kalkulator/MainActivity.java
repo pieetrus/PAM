@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
+
 public class MainActivity extends AppCompatActivity {
 
     private Button[] numbers;
@@ -26,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private double val1 = Double.NaN;
     private double val2;
     private char ACTION;
+    private static DecimalFormat df = new DecimalFormat("#.#");
 
 
 
@@ -51,51 +54,65 @@ public class MainActivity extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                compute();
-                ACTION = ADDITION;
-                result.setText(String.valueOf(val1) + "+");
-                info.setText(null);
+                if (info.getText().length() >0) {
+                    compute();
+                    ACTION = ADDITION;
+                    result.setText(val1 + "+");
+                    info.setText(null);
+                }
             }
         });
 
         mul.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                compute();
-                ACTION = MULTIPLICATION;
-                result.setText(String.valueOf(val1) + "*");
-                info.setText(null);
+                if (info.getText().length() >0) {
+                    compute();
+                    ACTION = MULTIPLICATION;
+                    result.setText(val1 + "*");
+                    info.setText(null);
+                }
             }
         });
 
         sub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                compute();
-                ACTION = SUBTRACTION;
-                result.setText(String.valueOf(val1) + "-");
-                info.setText(null);
+                if (info.getText().length() >0) {
+                    compute();
+                    ACTION = SUBTRACTION;
+                    result.setText(val1 + "-");
+                    info.setText(null);
+                }
             }
         });
 
         div.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                compute();
-                ACTION = DIVISION;
-                result.setText(String.valueOf(val1) + "/");
-                info.setText(null);
+                if (info.getText().length() >0) {
+                    compute();
+                    ACTION = DIVISION;
+                    result.setText(val1 + "/");
+                    info.setText(null);
+                }
             }
         });
 
         equal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                compute();
-                ACTION = EQU;
-                result.setText(result.getText().toString() + String.valueOf(val2) + "=" + String.valueOf(val1));
-                //5 + 4 = 9
-                info.setText(null);
+                if (info.getText().length() >0) {
+                    compute();
+                    ACTION = EQU;
+                    if (val1 % 1 == 0){
+                        result.setText(result.getText().toString() + val2 + "=" + df.format(val1));
+                    }
+                    else{
+                        result.setText(result.getText().toString() + val2 + "=" + val1);
+                    }
+                    info.setText(null);
+                }
             }
         });
 
@@ -136,6 +153,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void compute(){
+
+
         if (!Double.isNaN(val1)){
             val2 = Double.parseDouble(info.getText().toString());
             switch(ACTION){
