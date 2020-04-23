@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Kalkulator napiwków</string>
+    <string name="total">Razem</string>
+    <string name="tip">Napiwek</string>
+    <string name="price">Cena</string>
+    <string name="price_hint">Cena posiłku</string>
+    <string name="et_tip_hint">Wpisz procent napiwku ręcznie</string>
+    <string name="btn_text">Pokaż pasek</string>
+    <string name="review_label">Jak oceniasz obsługę?</string>
+
+</resources>
