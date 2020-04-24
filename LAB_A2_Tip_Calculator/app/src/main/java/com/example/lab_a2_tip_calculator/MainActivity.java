@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btn_back;
     private int tip_percentage;
     private double base;
+    private boolean isSeekBarActive;
 
 
     @Override
@@ -42,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
         seek_bar_tip.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (!isSeekBarActive) { tv_tip_percentage.setText("0 " + "%"); return;}
                 tv_tip_percentage.setText(progress + "%");
-                et_tip_percentage.setText(""+progress);
                 tip_percentage = progress;
                 compute_total();
             }
@@ -96,6 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
+                if (isSeekBarActive) return;
                 String tip_text = et_tip_percentage.getText().toString();
                 if (tip_text.matches("")){
                     tip_percentage = 0;
@@ -105,7 +107,6 @@ public class MainActivity extends AppCompatActivity {
                 else{
                     tip_percentage = Integer.parseInt(tip_text);
                     tv_tip_percentage.setText(tip_percentage + "%");
-                    seek_bar_tip.setProgress(tip_percentage);
                 }
                 compute_total();
             }
@@ -114,6 +115,10 @@ public class MainActivity extends AppCompatActivity {
         btn_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                isSeekBarActive = true;
+                seek_bar_tip.setProgress(tip_percentage);
+                et_tip_percentage.setText("");
+
                 seek_bar_tip.setVisibility(View.VISIBLE);
                 tv_tip_percentage.setVisibility(View.VISIBLE);
                 btn_back.setVisibility(View.GONE);
@@ -147,6 +152,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupUIViews(){
         seek_bar_tip = findViewById(R.id.seek_bar_tip);
+        seek_bar_tip.setMax(40);
         et_base = findViewById(R.id.et_base);
         tv_tip_percentage = findViewById(R.id.tv_tip_precentage);
         tv_tip_amount = findViewById(R.id.tv_tip_amount);
@@ -156,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
         tv_review = findViewById(R.id.tv_review_ask);
         rb_review = findViewById(R.id.rb_review);
         tv_review_message = findViewById(R.id.tv_review_message);
+        isSeekBarActive = true;
 
         seek_bar_tip.setProgress(15);
         tv_tip_percentage.setText("15%");
@@ -171,6 +178,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void change_tip_percentage(View view) {
+        isSeekBarActive = false;
         seek_bar_tip.setVisibility(View.GONE);
         tv_tip_percentage.setVisibility(View.GONE);
         btn_back.setVisibility(View.VISIBLE);

@@ -124,6 +124,7 @@
         android:autofillHints="@string/et_tip_hint"
         android:ems="10"
         android:gravity="center"
+        android:focusable="true"
         android:hint="@string/et_tip_hint"
         android:inputType="number"
         android:visibility="gone"
