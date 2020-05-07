@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Lab_A4</string>
+    <string name="etPhoneNumberHint">Numer</string>
+    <string name="btnDial">Zadzwoń</string>
+    <string name="btnContacts">Kontakty</string>
+    <!--    <string name="tvContact">Kontakty</string>-->
+    <string name="imgDescription">Zdjęcie kontaktu</string>
+    <string name="btnSendMessage">Wyślij sms</string>
+    <string name="etSendMessageHint">Nazwa kontaktu</string>
+    <string name="etMessageContentHint">Treść wiadomości</string>
+    <string name="btnClear">Wyczyść</string>
+    <string name="btnGeo">Pokaż na mapie</string>
+    <string name="etLatHint">Szerokość</string>
+    <string name="etLonHint">Długość</string>
+    <string name="btnStudent">Student</string>
+    <string name="etStudentHint">Numer indeksu</string>
+    <string name="tvReview">Wystaw ocenę!</string>
+
+
+</resources>
