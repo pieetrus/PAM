@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private Button btnClear;
     private Button btnStudent;
     private TextView tvContact;
+    private TextView tvLogin;
     private EditText etPhoneNumber;
     private EditText etMessageContact;
     private EditText etMessageContent;
@@ -40,6 +41,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initialize();
+        Intent intent = getIntent();
+        final String login = intent.getStringExtra("login");
+        if (login.toLowerCase().contains("marek")){
+            tvLogin.setText("Dr " + login);
+        }else{
+            tvLogin.setText(login);
+        }
 
         btnDial.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,7 +110,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String indexNr = etStudent.getText().toString();
                 Intent intent  = new Intent(getApplicationContext(), indexActivity.class);
-                intent.putExtra("value", indexNr);
+                intent.putExtra("index", indexNr);
+                intent.putExtra("login", login);
                 startActivity(intent);
             }
         });
@@ -144,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
         etPhoneNumber = findViewById(R.id.etPhoneNumber);
         etMessageContent = findViewById(R.id.etMessageContent);
         tvContact = findViewById(R.id.tv_contact);
+        tvLogin = findViewById(R.id.tvLogin);
         etMessageContact = findViewById(R.id.etMessageContact);
         etLat = findViewById(R.id.etLat);
         etLon = findViewById(R.id.etLon);

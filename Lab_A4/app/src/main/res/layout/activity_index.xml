@@ -47,8 +47,8 @@
 
     <TextView
         android:id="@+id/tvResponse"
-        android:layout_width="274dp"
-        android:layout_height="133dp"
+        android:layout_width="273dp"
+        android:layout_height="111dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
@@ -59,4 +59,18 @@
         android:gravity="center"
         android:textSize="23sp"
         tools:text="Uff ważne że zaliczone" />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="151dp"
+        android:layout_height="66dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="133dp"
+        android:layout_marginLeft="133dp"
+        android:layout_marginBottom="35dp"
+        android:text="@string/btnBack"
+        android:textSize="22sp" />
 </RelativeLayout>

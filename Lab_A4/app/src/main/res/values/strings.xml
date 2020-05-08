@@ -15,6 +15,11 @@
     <string name="btnStudent">Student</string>
     <string name="etStudentHint">Numer indeksu</string>
     <string name="tvReview">Wystaw ocenę!</string>
+    <string name="etLoginHint">Podaj swoje imię</string>
+    <string name="btnLogin">Wchodzę!</string>
+    <string name="tvHello">Witaj użytkowniku!</string>
+    <string name="btnBack">Wróć</string>
+
 
 
 </resources>
